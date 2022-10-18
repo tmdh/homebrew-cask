@@ -12,4 +12,9 @@ cask "laravel-kit" do
   homepage "https://tmdh.github.io/laravel-kit"
 
   app "Laravel Kit.app"
+
+  preflight do
+    system_command "xattr",
+                   args: ["-d", "com.apple.quarantine", "#{staged_path}/Laravel Kit.app"]
+  end
 end
